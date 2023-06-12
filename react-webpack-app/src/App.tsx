@@ -1,16 +1,31 @@
 import './styles.css'
-import IMAGE from './logo-png.png'
-import LOGO from './logo-svg.svg'
-import { Counter } from './ClickCounter'
+import { Header } from './components/Header'
 
 export const App = () => {
   return (
     <>
-      <h1>
-        Diony Code React Template - {process.env.NODE_ENV} - {process.env.name}
-      </h1>
-      <img src={IMAGE} alt="React Logo" width="300" height="300"></img>
-      <img src={LOGO} alt="React Logo" width="300"></img> <Counter />
+      <Header>
+        <Child>
+          <GrandChild></GrandChild>
+        </Child>
+      </Header>
     </>
   )
+}
+
+interface Props {
+  children?: React.ReactNode
+}
+
+const Child: React.FC<Props> = ({ children }) => {
+  return (
+    <div>
+      Child <br />
+      {children}
+    </div>
+  )
+}
+
+const GrandChild = () => {
+  return <div>I am Grand Child</div>
 }
