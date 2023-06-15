@@ -1,4 +1,9 @@
 // Pure JavaScript Function
 export function testMethod() {
-  console.log
+  testMethod2('Hello World')
+  console.log()
+}
+
+export function testMethod2(str: string) {
+  console.log(str)
 }

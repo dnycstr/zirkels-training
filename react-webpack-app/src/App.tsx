@@ -1,31 +1,17 @@
+import { EventComponent } from './components/EventComponent'
+import { ParentComponent } from './components/ParentCompnent'
 import './styles.css'
-import { Header } from './components/Header'
 
 export const App = () => {
+  const event2 = () => {
+    alert('Event 2')
+  }
+
   return (
     <>
-      <Header>
-        <Child>
-          <GrandChild></GrandChild>
-        </Child>
-      </Header>
+      <ParentComponent>
+        <EventComponent mayNagClick={event2} />
+      </ParentComponent>
     </>
   )
-}
-
-interface Props {
-  children?: React.ReactNode
-}
-
-const Child: React.FC<Props> = ({ children }) => {
-  return (
-    <div>
-      Child <br />
-      {children}
-    </div>
-  )
-}
-
-const GrandChild = () => {
-  return <div>I am Grand Child</div>
 }

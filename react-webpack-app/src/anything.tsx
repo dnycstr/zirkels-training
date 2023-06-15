@@ -1,6 +1,6 @@
 // Has ReactJS Component or HTML like tags
 import React from 'react'
 
-export function testMethod() {
-  return <div>Test Method</div>
+export const testMethod = (str: string) => {
+  return <div>Test Method str {str}</div>
 }
