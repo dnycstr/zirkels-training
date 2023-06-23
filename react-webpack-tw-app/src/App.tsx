@@ -1,7 +1,13 @@
 import React from 'react';
 
+import { BasicForm } from './components/BasicForm';
+
 const App: React.FC = () => {
-  return <div className="text-red-700">Webpack Tailwind App</div>;
+  return (
+    <>
+      <BasicForm />
+    </>
+  );
 };
 
 export default App;
