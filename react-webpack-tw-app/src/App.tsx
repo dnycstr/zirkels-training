@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { BasicForm } from './components/BasicForm';
+import { PersonalInformation } from './pages/PersonalInformation';
 
 const App: React.FC = () => {
   return (
     <>
-      <BasicForm />
+      <PersonalInformation />
     </>
   );
 };
