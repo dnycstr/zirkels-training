@@ -1,4 +1,4 @@
-import { Formik } from 'formik';
+import { Formik, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 
 import { DateInput } from 'src/components/Forms/DateInput';
@@ -6,35 +6,51 @@ import { Input } from 'src/components/Forms/Input';
 
 const PersonalInformationValidation = Yup.object().shape({
   firstName: Yup.string()
-    .max(5, 'Sobra ang Pangalan')
+    .max(20, 'Sobra ang Pangalan')
     .required('First Name is Required'),
-  lastName: Yup.string().max(5, 'Sobra ang Apelyido').nullable(),
+  lastName: Yup.string().max(21, 'Sobra ang Apelyido').nullable(),
   email: Yup.string().email('Invalid Email').required('Email is Required'),
-  startDate: Yup.date()
-    .min(new Date(), 'Must not least than today')
-    .required('Start Date is Required'),
-  endDate: Yup.date().required('End Date is Required'),
+  birthDate: Yup.date()
+    .max(new Date(), 'Must least than today')
+    .required('Birth Date is Required'),
+  phone: Yup.string().required('Phone is Required'),
 });
 
 interface PersonalInformationModel {
   firstName: string;
   lastName: string;
+  birthDate?: Date;
   email: string;
-  startDate?: Date;
-  endDate?: Date;
+  phone?: string;
 }
 
 const initialValues: PersonalInformationModel = {
   firstName: '',
   lastName: '',
   email: '',
-  startDate: undefined,
-  endDate: undefined,
+  birthDate: undefined,
+  phone: '',
 };
 
-export const PersonalInformation: React.FC = () => {
-  const handleFormSubmit = (values: PersonalInformationModel) => {
-    console.log(values);
+export const PersonalInformationCreate: React.FC = () => {
+  const handleFormSubmit = (
+    values: PersonalInformationModel,
+    action: FormikHelpers<PersonalInformationModel>
+  ) => {
+    const URL = 'https://zirkels-redfalcon-app.dscodelab.com/api/contacts';
+
+    fetch(URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(values),
+    }).then((response) => {
+      if (response.status == 201) {
+        alert('Successfully Added');
+        action.resetForm();
+      }
+    });
   };
 
   return (
@@ -45,8 +61,8 @@ export const PersonalInformation: React.FC = () => {
           validateOnChange={true}
           validateOnBlur={true}
           initialValues={initialValues}
-          onSubmit={(values) => {
-            handleFormSubmit(values);
+          onSubmit={(values, action) => {
+            handleFormSubmit(values, action);
           }}
         >
           {(formikProps) => {
@@ -56,8 +72,8 @@ export const PersonalInformation: React.FC = () => {
                   <Input name="firstName" label="First Name" />
                   <Input name="lastName" label="Last Name" />
                   <Input name="email" label="Email" />
-                  <DateInput name="startDate" label="Start Date" />
-                  <DateInput name="endDate" label="End Date" />
+                  <DateInput name="birthDate" label="Birth Date" />
+                  <Input name="phone" label="Phone Number" />
                   <button
                     type="submit"
                     className="border mt-4 p-2 rounded-md bg-slate-500"

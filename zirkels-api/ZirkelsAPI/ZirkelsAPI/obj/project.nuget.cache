@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "jy7BFpvrBt1P2qslnLG6+O9Rv2nXF/NuAohfB13+6PvaQhHolX8wut4nk/eOOLC1fBZu0CM67cPs26j0xoqvRg==",
+  "success": true,
+  "projectFilePath": "D:\\dnycstr\\zirkels-training\\zirkels-api\\ZirkelsAPI\\ZirkelsAPI\\ZirkelsAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\diony\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\diony\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\diony\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\diony\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\diony\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\diony\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}

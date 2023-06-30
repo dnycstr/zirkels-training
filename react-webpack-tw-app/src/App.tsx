@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { PersonalInformation } from './pages/PersonalInformation';
+import { PersonalInformationList } from './pages/PersonalInformationList';
 
 const App: React.FC = () => {
   return (
     <>
-      <PersonalInformation />
+      <PersonalInformationList />
     </>
   );
 };
